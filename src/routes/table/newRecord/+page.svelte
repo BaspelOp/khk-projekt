@@ -12,6 +12,7 @@
             ustanoveni: document.getElementById('ustanoveni').value,
             vedouci: document.getElementById('vedouci').value,
             clen: document.getElementById('clen').value,
+            spisovaZn: document.getElementById('spisovaZn').value,
         }]);
 
         console.log($zaznamy);
@@ -25,6 +26,12 @@
 <div class="bg-form">
     <h1>Nový záznam</h1>
     <form method="POST" action="?/newZaznam">
+        
+        <div>
+            <label for="spisovaZn">Spisová značka</label>
+            <input type="text" id="spisovaZn" name="spisovaZn">
+        </div>
+
         <div>
             <label for="kontrolovanaOsoba">Kontrolovaná osoba</label>
             <input type="text" id="kontrolovanaOsoba" name="kontrolovanaOsoba">
