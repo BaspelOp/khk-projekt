@@ -16,6 +16,7 @@
 	},
 	"type": "module",
 	"dependencies": {
+		"docx-templates": "^4.13.0",
 		"svelte-routing": "^2.13.0"
 	}
 }
