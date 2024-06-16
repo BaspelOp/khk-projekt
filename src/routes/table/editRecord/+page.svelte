@@ -15,6 +15,11 @@
     <h1>Edit záznamu</h1>
     <form method="POST" action="?/newZaznam">
         <div>
+            <label for="spisovaZn">Spisová značka</label>
+            <input type="text" id="spisovaZn" name="spisovaZn" bind:value={$selectedZaznam.spisovaZn}>
+        </div>
+
+        <div>
             <label for="kontrolovanaOsoba">Kontrolovaná osoba</label>
             <input type="text" id="kontrolovanaOsoba" name="kontrolovanaOsoba" bind:value={$selectedZaznam.kontrolovanaOsoba}>
         </div>
