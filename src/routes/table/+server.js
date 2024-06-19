@@ -18,7 +18,7 @@ export async function POST(reqEvent) {
 
     return new Response(report, {
         headers: {
-            'Content-Disposition': 'attachment; filename="report.docx"',
+            'Content-Disposition': 'attachment; filename="povereni.docx"',
             'Content-Type': 'application/vnd.openxmlformats-officedocument.wordprocessingml.document'
         }
     });
