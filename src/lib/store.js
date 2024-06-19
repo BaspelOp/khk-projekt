@@ -6,7 +6,7 @@ export const zaznamy = writable([
         odbor: 'MSZ',
         usek: 'Venkovní věci',
         predmetKontroly: 'kotel podle zákona § 1 odst. 5 zákona č. 892/2013 Sb.',
-        planovanyTermin: 'srpen',
+        planovanyTermin: 'Srpen',
         spisovaZn: 'KUKHK-52/654/2023',
         povereniKeKontrole: 'č.564/2023',
         ustanoveni: '§ 6 odst. 1 zákona č. 298/2014 Sb.',
