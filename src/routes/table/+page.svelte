@@ -38,9 +38,16 @@
     <title>Seznam kontrol - Plán kontrol</title>
 </svelte:head>
 
-<h1>Seznam kontrol</h1>
+<h1>Plán kontrol u příspěvkových organizací</h1>
+
+<a href="/table/newRecord">
+    <button class="btn btn-outline-primary">
+        <i class="bi bi-plus-circle"></i> Nový záznam
+    </button>
+</a>
+
 <div class="table-responsive">
-    <table class="table table-striped table-hover">
+    <table class="table table-striped table-hover align-middle">
         <thead>
             <tr>
                 <th>Kontrolovaná osoba</th>
@@ -48,9 +55,10 @@
                 <th>Úsek (Oblast kontroly)</th>
                 <th>Předmět kontroly</th>
                 <th>Plánovaný termín</th>
-                <th>Stáhnout</th>
+                <th>Dokumenty</th>
                 <th>Checkbox</th>
                 <th>Upravit</th>
+                <th>Smazat</th>
             </tr>
         </thead>
         <tbody class="table-group-divider">
@@ -62,19 +70,96 @@
                     <td>{zaznam.predmetKontroly}</td>
                     <td>{zaznam.planovanyTermin}</td>
                     <td>
-                        <div class="d-grid gap-2">
-                            <button
-                                class="btn btn-outline-primary"
-                                on:click={() => doPost(zaznam)}
-                                ><i class="bi bi-download"></i> Pověření ke kontrole</button
-                            >
-                            <button class="btn btn-outline-primary"
-                                ><i class="bi bi-download"></i> Oznámení o zahájení
-                                kontroly</button
-                            >
-                            <button class="btn btn-outline-primary"
-                                ><i class="bi bi-download"></i> Protokol</button
-                            >
+                        <div
+                            class="btn-group-vertical"
+                            role="group"
+                            aria-label="Vertical button group"
+                        >
+                            <div class="btn-group dropend" role="group">
+                                <button
+                                    class="btn btn-outline-primary dropdown-toggle"
+                                    type="button"
+                                    data-bs-toggle="dropdown"
+                                    aria-expanded="false"
+                                >
+                                    Pověření ke kontrole
+                                </button>
+                                <ul class="dropdown-menu">
+                                    <li>
+                                        <button
+                                            class="dropdown-item"
+                                            type="button"
+                                        >
+                                            <i class="bi bi-pencil-square"></i> Upravit
+                                        </button>
+                                    </li>
+                                    <li>
+                                        <button
+                                            class="dropdown-item"
+                                            type="button"
+                                            on:click={() => doPost(zaznam)}
+                                        >
+                                            <i class="bi bi-download"></i> Stáhnout
+                                        </button>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="btn-group dropend" role="group">
+                                <button
+                                    class="btn btn-outline-primary dropdown-toggle"
+                                    type="button"
+                                    data-bs-toggle="dropdown"
+                                    aria-expanded="false"
+                                >
+                                    Oznámení o zahájení
+                                </button>
+                                <ul class="dropdown-menu">
+                                    <li>
+                                        <button
+                                            class="dropdown-item"
+                                            type="button"
+                                        >
+                                            <i class="bi bi-pencil-square"></i> Upravit
+                                        </button>
+                                    </li>
+                                    <li>
+                                        <button
+                                            class="dropdown-item"
+                                            type="button"
+                                        >
+                                            <i class="bi bi-download"></i> Stáhnout
+                                        </button>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="btn-group dropend" role="group">
+                                <button
+                                    class="btn btn-outline-primary dropdown-toggle"
+                                    type="button"
+                                    data-bs-toggle="dropdown"
+                                    aria-expanded="false"
+                                >
+                                    Protokol
+                                </button>
+                                <ul class="dropdown-menu">
+                                    <li>
+                                        <button
+                                            class="dropdown-item"
+                                            type="button"
+                                        >
+                                            <i class="bi bi-pencil-square"></i> Upravit
+                                        </button>
+                                    </li>
+                                    <li>
+                                        <button
+                                            class="dropdown-item"
+                                            type="button"
+                                        >
+                                            <i class="bi bi-download"></i> Stáhnout
+                                        </button>
+                                    </li>
+                                </ul>
+                            </div>
                         </div>
                     </td>
                     <td>
@@ -88,9 +173,14 @@
                                 class="btn btn-outline-primary"
                                 on:click={() => editRow(zaznam)}
                             >
-                                <i class="bi bi-pencil-square"></i> Upravit
+                                <i class="bi bi-pencil-square"></i>
                             </button>
                         </a>
+                    </td>
+                    <td>
+                        <button class="btn btn-outline-danger">
+                            <i class="bi bi-trash"></i>
+                        </button>
                     </td>
                 </tr>
             {/each}

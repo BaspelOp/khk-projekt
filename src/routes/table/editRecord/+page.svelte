@@ -15,7 +15,7 @@
     <title>Upravení záznamu - Plán kontrol</title>
 </svelte:head>
 
-<h1>Edit záznamu</h1>
+<h1>Upravení záznamu</h1>
 <form method="POST" action="?/newZaznam">
     <div class="form-floating my-3">
         <input
