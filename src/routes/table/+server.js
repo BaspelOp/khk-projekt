@@ -1,5 +1,3 @@
-
-import { json } from '@sveltejs/kit';
 import { createReport } from 'docx-templates';
 import fs from 'fs';
 
@@ -10,10 +8,10 @@ export async function POST(reqEvent) {
     data.datum = new Date(data.datum).toLocaleDateString();
     data.kontrolovaneObdobi = new Date(data.kontrolovaneObdobi).toLocaleDateString();
     console.log(data);
-    
+
     const report = await createReport({
         template: povereniTemplate,
-        data: data, 
+        data: data,
     });
 
     return new Response(report, {
