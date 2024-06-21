@@ -1,5 +1,5 @@
 <script>
-    import { zaznamy, selectedZaznam } from "../../lib/store.js";
+    import { zaznamy, selectedZaznam } from "$lib/store.js";
     import fs from "fs";
 
     async function doPost(zaznam) {

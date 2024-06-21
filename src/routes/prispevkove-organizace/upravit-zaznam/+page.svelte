@@ -1,6 +1,6 @@
 <script>
     import { onMount } from "svelte";
-    import { selectedZaznam } from "../../../lib/store.js";
+    import { selectedZaznam } from "$lib/store.js";
 
     onMount(() => {
         console.log($selectedZaznam);

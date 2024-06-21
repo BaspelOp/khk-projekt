@@ -1,5 +1,5 @@
 <script>
-    import { zaznamy } from "../../../lib/store.js";
+    import { zaznamy } from "$lib/store.js";
 
     function vepsatDoStore() {
         zaznamy.update((n) => [
