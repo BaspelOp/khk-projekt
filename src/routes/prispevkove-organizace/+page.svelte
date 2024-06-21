@@ -3,7 +3,7 @@
     import fs from "fs";
 
     async function doPost(zaznam) {
-        const res = await fetch("table", {
+        const res = await fetch("/api/download/povereni", {
             method: "POST",
             body: JSON.stringify(zaznam),
             mode: "no-cors",
@@ -40,7 +40,7 @@
 
 <h1>Plán kontrol u příspěvkových organizací</h1>
 
-<a href="/table/newRecord">
+<a href="/prispevkove-organizace/novy-zaznam">
     <button class="btn btn-outline-primary">
         <i class="bi bi-plus-circle"></i> Nový záznam
     </button>
@@ -168,7 +168,7 @@
                         </div>
                     </td>
                     <td>
-                        <a href="table/editRecord">
+                        <a href="/prispevkove-organizace/upravit-zaznam">
                             <button
                                 class="btn btn-outline-primary"
                                 on:click={() => editRow(zaznam)}

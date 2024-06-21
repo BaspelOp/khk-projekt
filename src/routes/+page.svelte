@@ -1,5 +1,5 @@
 <script>
-    import Table from "./table/+page.svelte";
+    import Table from "./prispevkove-organizace/+page.svelte";
 </script>
 
 <main>

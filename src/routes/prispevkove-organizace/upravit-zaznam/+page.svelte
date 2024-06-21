@@ -1,40 +1,22 @@
 <script>
-    import { zaznamy } from "../../../lib/store.js";
+    import { onMount } from "svelte";
+    import { selectedZaznam } from "../../../lib/store.js";
 
-    function vepsatDoStore() {
-        zaznamy.update((n) => [
-            ...n,
-            {
-                kontrolovanaOsoba:
-                    document.getElementById("kontrolovanaOsoba").value,
-                odbor: document.getElementById("odbor").value,
-                usek: document.getElementById("usek").value,
-                predmetKontroly:
-                    document.getElementById("predmetKontroly").value,
-                planovanyTermin:
-                    document.getElementById("planovanyTermin").value,
-                povereniKeKontrole:
-                    document.getElementById("povereniKeKontrole").value,
-                ustanoveni: document.getElementById("ustanoveni").value,
-                vedouci: document.getElementById("vedouci").value,
-                clen: document.getElementById("clen").value,
-                spisovaZn: document.getElementById("spisovaZn").value,
-            },
-        ]);
+    onMount(() => {
+        console.log($selectedZaznam);
+    });
 
-        console.log($zaznamy);
+    function ulozitDoStore() {
+        console.log($selectedZaznam);
     }
 </script>
 
 <svelte:head>
-    <title>Nový záznam - Plán kontrol</title>
+    <title>Upravení záznamu - Plán kontrol</title>
 </svelte:head>
 
-<!-- svelte-ignore a11y-click-events-have-key-events -->
-<!-- svelte-ignore a11y-no-static-element-interactions -->
-
-<h1>Nový záznam</h1>
-<form method="POST" action="?/newZaznam">
+<h1>Upravení záznamu</h1>
+<form method="POST" action="?/novy-zaznam">
     <div class="form-floating my-3">
         <input
             type="text"
@@ -42,6 +24,7 @@
             name="spisovaZn"
             class="form-control"
             placeholder="Spisová značka"
+            bind:value={$selectedZaznam.spisovaZn}
         />
         <label for="spisovaZn">Spisová značka</label>
     </div>
@@ -53,6 +36,7 @@
             name="kontrolovanaOsoba"
             class="form-control"
             placeholder="Kontrolovaná osoba"
+            bind:value={$selectedZaznam.kontrolovanaOsoba}
         />
         <label for="kontrolovanaOsoba">Kontrolovaná osoba</label>
     </div>
@@ -64,6 +48,7 @@
             name="odbor"
             class="form-control"
             placeholder="Odbor"
+            bind:value={$selectedZaznam.odbor}
         />
         <label for="odbor">Odbor</label>
     </div>
@@ -75,6 +60,7 @@
             name="usek"
             class="form-control"
             placeholder="Úsek (Oblast kontroly)"
+            bind:value={$selectedZaznam.usek}
         />
         <label for="usek">Úsek (Oblast kontroly)</label>
     </div>
@@ -86,12 +72,17 @@
             name="predmetKontroly"
             class="form-control"
             placeholder="Předmět kontroly"
+            bind:value={$selectedZaznam.predmetKontroly}
         />
         <label for="predmetKontroly">Předmět kontroly</label>
     </div>
 
     <div class="form-floating my-3">
-        <select id="planovanyTermin" class="form-select">
+        <select
+            id="planovanyTermin"
+            class="form-select"
+            bind:value={$selectedZaznam.planovanyTermin}
+        >
             <option value="" disabled selected>Vyberte měsíc</option>
             <option value="Leden">Leden</option>
             <option value="Únor">Únor</option>
@@ -116,6 +107,7 @@
             name="povereniKeKontrole"
             class="form-control"
             placeholder="Pověření ke kontrole"
+            bind:value={$selectedZaznam.povereniKeKontrole}
         />
         <label for="povereniKeKontrole">Pověření ke kontrole</label>
     </div>
@@ -127,6 +119,7 @@
             name="ustanoveni"
             class="form-control"
             placeholder="Ustanovení"
+            bind:value={$selectedZaznam.ustanoveni}
         />
         <label for="ustanoveni">Ustanovení</label>
     </div>
@@ -138,6 +131,7 @@
             name="vedouci"
             class="form-control"
             placeholder="Vedoucí"
+            bind:value={$selectedZaznam.vedouci}
         />
         <label for="vedouci">Vedoucí</label>
     </div>
@@ -149,24 +143,33 @@
             name="clen"
             class="form-control"
             placeholder="Člen"
+            bind:value={$selectedZaznam.clen}
         />
         <label for="clen">Člen</label>
     </div>
 
     <div class="input-group my-3">
         <span class="input-group-text">Kontrolované období:</span>
-        <input type="date" class="form-control" />
+        <input
+            type="date"
+            class="form-control"
+            bind:value={$selectedZaznam.kontrolovaneObdobi}
+        />
         <span class="input-group-text">-</span>
-        <input type="date" class="form-control" />
+        <input
+            type="date"
+            class="form-control"
+            bind:value={$selectedZaznam.kontrolovaneObdobi}
+        />
     </div>
 
     <!-- <>Uložit</button> -->
-    <a href="/table">
+    <a href="/prispevkove-organizace">
         <button
             class="btn btn-outline-primary"
-            on:click={() => vepsatDoStore()}
+            on:click={() => ulozitDoStore()}
         >
-            <i class="bi bi-plus-circle"></i> Přidat
+            <i class="bi bi-floppy"></i> Uložit
         </button>
     </a>
 </form>
