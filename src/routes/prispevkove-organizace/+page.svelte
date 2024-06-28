@@ -1,18 +1,11 @@
 <script>
     import { zaznamy, selectedZaznam } from "$lib/store.js";
-    import fs from "fs";
 
     async function doPost(zaznam) {
         const res = await fetch("/api/download/povereni", {
             method: "POST",
             body: JSON.stringify(zaznam),
-            mode: "no-cors",
-            headers: {
-                "Content-Type": "application/json",
-            },
         });
-
-        console.log(res);
 
         if (res.ok) {
             const blob = await res.blob();
@@ -30,7 +23,6 @@
 
     function editRow(zaznam) {
         selectedZaznam.set(zaznam);
-        console.log($selectedZaznam);
     }
 </script>
 

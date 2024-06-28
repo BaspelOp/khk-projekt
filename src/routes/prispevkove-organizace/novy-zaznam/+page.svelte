@@ -21,8 +21,6 @@
                 spisovaZn: document.getElementById("spisovaZn").value,
             },
         ]);
-
-        console.log($zaznamy);
     }
 </script>
 

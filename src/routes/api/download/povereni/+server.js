@@ -7,7 +7,6 @@ export async function POST({ request }) {
     const data = await request.json();
     data.datum = new Date(data.datum).toLocaleDateString();
     data.kontrolovaneObdobi = new Date(data.kontrolovaneObdobi).toLocaleDateString();
-    console.log(data);
 
     const report = await createReport({
         template: povereniTemplate,
