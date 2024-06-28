@@ -1,4 +1,5 @@
 <script>
+    import { error } from "@sveltejs/kit";
     import { zaznamy, selectedZaznam } from "$lib/store.js";
 
     async function doPost(zaznam) {
@@ -17,7 +18,7 @@
             link.click();
             link.remove();
         } else {
-            console.error("Server response was not ok.");
+            error(404, "Not found");
         }
     }
 
