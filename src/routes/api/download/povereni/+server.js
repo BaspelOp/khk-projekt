@@ -3,8 +3,8 @@ import fs from 'fs';
 
 const povereniTemplate = fs.readFileSync('povereni.docx');
 
-export async function POST(reqEvent) {
-    const data = await reqEvent.request.json();
+export async function POST({ request }) {
+    const data = await request.json();
     data.datum = new Date(data.datum).toLocaleDateString();
     data.kontrolovaneObdobi = new Date(data.kontrolovaneObdobi).toLocaleDateString();
     console.log(data);
